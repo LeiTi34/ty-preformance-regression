@@ -7,7 +7,7 @@ when type-checking a call to `dict(value)` (or `dict(**value)`) where
 The check still completes (no infinite loop), but the runtime grows
 super-linearly in both the number of union members and the number of
 keys per `TypedDict`. With 19 variants × 8 keys, ty 0.0.39 takes
-~60 seconds on a 250-line file with no imports; ty 0.0.38 takes ~0.16s
+~115 seconds on a 250-line file with no imports; ty 0.0.38 takes ~0.08s
 on the same file.
 
 In our production codebase this manifests as a CI step exceeding GitHub
