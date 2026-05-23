@@ -40,30 +40,30 @@ Sample output on Linux x86_64:
 
 ```
 === ty 0.0.38 ===
-ty 0.0.38  n= 4 k=1  rc=0   0.17s
-ty 0.0.38  n= 4 k=8  rc=0   0.17s
-ty 0.0.38  n= 8 k=8  rc=0   0.16s
-ty 0.0.38  n=12 k=8  rc=0   0.15s
-ty 0.0.38  n=16 k=8  rc=0   0.13s
-ty 0.0.38  n=19 k=1  rc=0   0.12s
-ty 0.0.38  n=19 k=3  rc=0   0.13s
-ty 0.0.38  n=19 k=5  rc=0   0.15s
-ty 0.0.38  n=19 k=8  rc=0   0.16s
+ty 0.0.38  n= 4 k=1  rc=0   0.09s
+ty 0.0.38  n= 4 k=8  rc=0   0.07s
+ty 0.0.38  n= 8 k=8  rc=0   0.07s
+ty 0.0.38  n=12 k=8  rc=0   0.08s
+ty 0.0.38  n=16 k=8  rc=0   0.08s
+ty 0.0.38  n=19 k=1  rc=0   0.08s
+ty 0.0.38  n=19 k=3  rc=0   0.08s
+ty 0.0.38  n=19 k=5  rc=0   0.08s
+ty 0.0.38  n=19 k=8  rc=0   0.08s
 
 === ty 0.0.39 ===
-ty 0.0.39  n= 4 k=8  rc=0   0.15s
-ty 0.0.39  n= 8 k=8  rc=0   0.30s
-ty 0.0.39  n=12 k=8  rc=0   3.60s
-ty 0.0.39  n=16 k=8  rc=124 60.46s    ← timeout
-ty 0.0.39  n=19 k=1  rc=0   4.37s
-ty 0.0.39  n=19 k=3  rc=0   6.60s
-ty 0.0.39  n=19 k=5  rc=0  12.78s
-ty 0.0.39  n=19 k=8  rc=124 60.37s    ← timeout
+ty 0.0.39  n= 4 k=8  rc=0   0.08s
+ty 0.0.39  n= 8 k=8  rc=0   0.15s
+ty 0.0.39  n=12 k=8  rc=0   2.34s
+ty 0.0.39  n=16 k=8  rc=0  75.89s
+ty 0.0.39  n=19 k=1  rc=0   2.85s
+ty 0.0.39  n=19 k=3  rc=0   3.99s
+ty 0.0.39  n=19 k=5  rc=0   7.37s
+ty 0.0.39  n=19 k=8  rc=0 115.31s
 ```
 
-ty 0.0.38: **runtime is flat at ~0.15s** across the entire matrix.
+ty 0.0.38: **runtime is flat at ~0.08s** across the entire matrix.
 ty 0.0.39: runtime grows roughly exponentially in `n` and `k`
-(rc=124 means GNU `timeout` killed the process after 60s).
+(rc=124 means GNU `timeout` killed the process after 120s).
 
 For our production codebase (19 union variants, mixed `NotRequired` keys),
 the wall-clock for the offending file alone is ~60s on ty 0.0.39 vs

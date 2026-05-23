@@ -20,7 +20,7 @@ run_one() {
     python3 "$SCRIPT_DIR/generate.py" "$n" "$k" "$out"
     local start end dur rc
     start=$(date +%s.%N)
-    timeout 60 uvx "ty@${version}" check "$out" >/dev/null 2>&1 && rc=0 || rc=$?
+    timeout 120 uvx "ty@${version}" check "$out" >/dev/null 2>&1 && rc=0 || rc=$?
     end=$(date +%s.%N)
     dur=$(echo "$end - $start" | bc)
     printf "ty %s  n=%2d k=%d  rc=%-3d %.2fs\n" "$version" "$n" "$k" "$rc" "$dur"
